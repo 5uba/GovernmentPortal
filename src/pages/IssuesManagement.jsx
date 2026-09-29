@@ -98,9 +98,17 @@ const IssuesManagement = () => {
     }
   };
 
-  const filteredIssues = issues.filter(i => 
-    i.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredIssues = issues
+    .filter(i => i.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    .map(i => {
+      const cat = categories.find(c => c.id === i.categoryId);
+      const dep = departments.find(d => d.id === i.departmentId);
+      return { 
+        ...i, 
+        categoryName: cat ? cat.name : 'Unknown (Deleted)',
+        departmentName: dep ? dep.name : 'Unknown (Deleted)'
+      };
+    });
 
   const columns = [
     { header: 'S.No', accessor: 'sno' },

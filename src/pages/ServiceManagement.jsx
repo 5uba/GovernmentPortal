@@ -99,9 +99,17 @@ const ServiceManagement = () => {
     }
   };
 
-  const filteredServices = services.filter(s => 
-    s.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredServices = services
+    .filter(s => s.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .map(s => {
+      const cat = categories.find(c => c.id === s.categoryId);
+      const dep = departments.find(d => d.id === s.departmentId);
+      return { 
+        ...s, 
+        categoryName: cat ? cat.name : 'Unknown (Deleted)',
+        departmentName: dep ? dep.name : 'Unknown (Deleted)'
+      };
+    });
 
   const columns = [
     { header: 'S.No', accessor: 'sno' },

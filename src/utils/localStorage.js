@@ -21,8 +21,8 @@ export const generateId = () => {
 };
 
 export const initializeMockData = () => {
-  const categories = getStorageData('categories', []);
-  if (categories.length === 0) {
+  const hasSeeded = getStorageData('hasSeeded', false);
+  if (!hasSeeded) {
     const cat1Id = generateId();
     const cat2Id = generateId();
     const cat3Id = generateId();
@@ -61,5 +61,6 @@ export const initializeMockData = () => {
     setStorageData('departments', mockDepartments);
     setStorageData('services', mockServices);
     setStorageData('issues', mockIssues);
+    setStorageData('hasSeeded', true);
   }
 };

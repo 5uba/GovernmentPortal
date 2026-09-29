@@ -83,9 +83,12 @@ const DepartmentManagement = () => {
     }
   };
 
-  const filteredDepartments = departments.filter(d => 
-    d.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredDepartments = departments
+    .filter(d => d.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .map(d => {
+      const cat = categories.find(c => c.id === d.categoryId);
+      return { ...d, categoryName: cat ? cat.name : 'Unknown (Deleted)' };
+    });
 
   const columns = [
     { header: 'S.No', accessor: 'sno' },
