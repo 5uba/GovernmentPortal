@@ -3,15 +3,22 @@ import { ArrowRight } from 'lucide-react';
 const HeroBanner = () => {
   return (
     <div className="relative bg-blue-900 text-white">
-
+      <div className="absolute inset-0 overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1573108724029-4c46571d6490?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+          alt="Community Infrastructure"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-transparent"></div>
+      </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
-            Empowering Citizens Through Digital Services
+            Report and Resolve Public Issues
           </h1>
           <p className="text-lg md:text-xl text-blue-100 mb-8">
-            Access government departments, request services, and report public issues efficiently from one centralized platform. We are here to serve you.
+            Help us improve our community. Report infrastructure problems, track the status of your complaints, and hold departments accountable.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a 

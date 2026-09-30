@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import HeroBanner from '../components/HeroBanner';
 import { Link } from 'react-router-dom';
 import { Layers, Building, Briefcase } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -17,6 +18,7 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
       <Navbar />
+      <HeroBanner />
       
       <main className="flex-grow">
         {/* Management Section */}
