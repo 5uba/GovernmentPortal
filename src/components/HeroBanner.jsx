@@ -22,15 +22,13 @@ const HeroBanner = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a 
-              href="#services" 
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-900 bg-white hover:bg-blue-50 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-900 bg-white hover:bg-blue-50 transition-colors cursor-pointer"
             >
               Explore Services
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
             <a 
-              href="#issues" 
-              className="inline-flex items-center justify-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-blue-800 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-blue-800 transition-colors cursor-pointer"
             >
               Report an Issue
             </a>
