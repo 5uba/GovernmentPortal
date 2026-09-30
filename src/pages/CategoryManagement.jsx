@@ -5,7 +5,7 @@ import FormModal from '../components/FormModal';
 import { getStorageData, setStorageData, generateId } from '../utils/localStorage';
 import { Plus, Search } from 'lucide-react';
 
-const CategoryManagement = () => {
+const CategoryManagement = ({ inline = false }) => {
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -79,8 +79,9 @@ const CategoryManagement = () => {
     { header: 'Created Date', accessor: 'createdAt' }
   ];
 
-  return (
-    <AdminLayout title="Category Management">
+  const content = (
+    <div className={inline ? "mt-8" : ""}>
+      {!inline && <h2 className="text-2xl font-bold mb-6 text-slate-800">Category Management</h2>}
       <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="relative w-full sm:w-72">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -160,6 +161,14 @@ const CategoryManagement = () => {
           </div>
         </form>
       </FormModal>
+    </div>
+  );
+
+  if (inline) return content;
+
+  return (
+    <AdminLayout title="Category Management">
+      {content}
     </AdminLayout>
   );
 };

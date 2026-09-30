@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import AdminLayout from '../components/AdminLayout';
 import { Layers, Building, Briefcase, Activity } from 'lucide-react';
 import { getStorageData } from '../utils/localStorage';
+import CategoryManagement from './CategoryManagement';
+import DepartmentManagement from './DepartmentManagement';
+import ServiceManagement from './ServiceManagement';
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
@@ -53,12 +56,17 @@ const Dashboard = () => {
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Welcome to GovPortal Admin</h2>
         <p className="text-slate-600 mb-4">
-          Use the sidebar navigation to manage categories, departments, services, and view public issues. 
-          All data is persistently saved in your browser's local storage.
+          Manage all your data directly below. You can search, edit, and delete across categories, departments, and services all from this single dashboard view.
         </p>
-        <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 text-blue-800 text-sm">
-          <strong>Tip:</strong> Always create Categories first, then Departments, and finally Services. Dependencies are strictly enforced to maintain data integrity.
+        <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 text-blue-800 text-sm mb-6">
+          <strong>Tip:</strong> Always create Categories first, then Departments, and finally Services.
         </div>
+        
+        {/* Render inline tables */}
+        <CategoryManagement inline={true} />
+        <DepartmentManagement inline={true} />
+        <ServiceManagement inline={true} />
+
       </div>
     </AdminLayout>
   );
